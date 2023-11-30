@@ -114,24 +114,37 @@ Overview of the analysis:
 The purpose of this analysis is to help the nonprofit foundation Alphabet Soup to select applicants for funding with the best chance of success, using a binary classifier that can predict whether applicants will be successful if funded by Alphabet Soup.
 
 Results:
+
 Data Preprocessing
 
 What variable(s) are the target(s) for your model?
-The target variable for my model is IS_SUCCESSFUL since we are trying to select applicants with the best chance of success. This variable is a classification of the binary outcome variable regarding success in charity donations/if money was used effectively.
+
+The target variable is IS_SUCCESSFUL.
+
 What variable(s) are the features for your model?
+
 APPLICATION_TYPE, AFFILIATION, CLASSIFICATION, USE_CASE, ORGANIZATION, STATUS, INCOME_AMT, SPECIAL_CONSIDERATIONS, ASK_AMT
+
 What variable(s) should be removed from the input data because they are neither targets nor features?
-EIN & NAME should be removed from the input data because they are individual identifiers which are neither targets nor features.
+
+EIN & NAME should be removed from the data because they are neither targets nor features.
+
 Compiling, Training, and Evaluating the Model
 
 How many neurons, layers, and activation functions did you select for your neural network model, and why?
-For my neural network model I selected 4 hidden layers with 150, 130, 90, 50 neurons respectivly. I chose to use 2 activation functions. ReLU, to explore non-linearity and sigmoid since this is a binary classification model.
+
+Selected 4 hidden layers with 150, 130, 90, 50 neurons respectivly and 2 activation functions. To explore non-linearity I used RelU and sigmoid since it's a binary classification model.
+
 Were you able to achieve the target model performance?
-I was able to achieve an accuracy score of 74.5%, which is just short of the target of 75%.
+
+The model achieved an accuracy score of 74.5%.
+
 What steps did you take in your attempts to increase model performance?
-To increase model performance, I tried dropping columns in addition to EIN and NAME but none of them had a significant impact. I also chose a cutoff value and created a list of application types to be replaced (application_types_to_replace) using value_counts so that any application type that had less than 100 occurrences was replaced with "Other". I also did this for CLASSIFICATION but with a cut off of 95 occurrences. I also added 2 hidden layers and increase the nodes for each layer, as well as increasing the epchos from 100 to 150.
+
+Added 2 hidden layers and increased the nodes for each respective layer. Also, increasing the epchos from 100 to 150.
+
 Summary:
 
-Overall, the deep learning model was around 74.5% accurate in predicting the sucessful funding projects. Improving initial data quality could help gain the additional 0.5% accuracy wer were seeking.
+The deep learning model was able to close achieve it's accuracy goal, with room for improvement by 0.5%.
 
-If we wanted to use a different model for this problem, I would suggest a Random Forest Classifier because it handles both numerical and categorical data well and can be used to determine feature importance giving insights into what features are most determinant for this problem. I believe that since we are quite close to achieving the 75% cut off, we could use additional feature engineering to try to make the model more accurate. I think categorizing the 'ASK_AMT' & ‘INCOME_AMT’ into bins could help.
+Since the model is quite close to achieving the 75% cut off, it could use additional feature engineering to increase accuracy.
